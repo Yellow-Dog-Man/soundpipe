@@ -113,3 +113,4 @@ TEST(t_voc, "voc", "b9e530bfd444fc272498b38da70c12da")
 /* TEST(t_lpc, "lpc", "61eaf9f2f888942ee40b511cdf4fb4bc") */
 TEST(t_smoothdelay, "smoothdelay", "fc1a46df39c40e37aacc019152164717")
 /* TEST(t_talkbox, "talkbox", "67e3e081d8879ac20f51deb4de69f349") */
+TEST(t_verbity, "verbity", "7a5cafea17ebe4c12db930a7fd61a55e")
