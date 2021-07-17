@@ -13,6 +13,7 @@ int t_verbity(sp_test *tst, sp_data *sp, const char *hash)
 
     /* allocate / initialize modules here */
     sp_verbity_create(&verb);
+    sp_verbity_init(sp, verb);
 
     for (n = 0; n < tst->size; n++) {
         SPFLOAT outL, outR;
