@@ -61,3 +61,9 @@ Documentation
 If you have lua installed on your computer, you can generate the current html
 documentation for soundpipe by running "make docs". A folder called "docs"
 will be created. The top page for the documentation is docs/index.html.
+
+Contact
+-------
+For questions related to Soundpipe, Please reach out to
+thisispaulbatchelor at gmail. Be sure to include Soundpipe
+somewhere in the subject header.
