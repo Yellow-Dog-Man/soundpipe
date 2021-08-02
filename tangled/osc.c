@@ -88,12 +88,12 @@ osc->lphs = phs;
 /* ported from MUSL library. License: MIT */
 #define MUSL_FLT_EPSILON 1.1920928955078125e-07F
 #define MUSL_EPS MUSL_FLT_EPSILON
-static const float_t toint = 1/MUSL_EPS;
+static const float toint = 1/MUSL_EPS;
 static float musl_rintf(float x)
 {
 	int e;
 	int s;
-	float_t y;
+	float y;
 	union {float f; uint32_t i;} u;
 
     u.f = x;
