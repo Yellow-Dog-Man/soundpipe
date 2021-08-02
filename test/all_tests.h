@@ -40,7 +40,7 @@ TEST(t_prop, "prop", "422c77885af9f96dc04a4e6df68af826")
 TEST(t_rline, "rline", "9b47e0320480b4a1b74b0e1672665051")
 TEST(t_random, "random", "a3e857e8c2cccb8773fe6d4902d6e21f")
 TEST(t_reverse, "reverse", "3296a3444115849585e7cb7a25899c7a")
-TEST(t_bigverb, "bigverb", "e5fcee0007e06587d04d5d6c8bcddbc2")
+TEST(t_bigverb, "bigverb", "3330ee5a60ed989589b9889630fb5a62")
 TEST(t_rpt, "rpt", "ddcf0fb72209dde0581e5d37e8513c62")
 /* TEST(t_maygate, "maygate", "7147aa5764871be6ec380ebd2d7cd8a1") */
 TEST(t_samphold, "samphold", "cafe3a8f9576b62eb57d9e849d4c8901")
