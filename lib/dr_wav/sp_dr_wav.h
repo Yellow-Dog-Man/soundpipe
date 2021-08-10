@@ -12,6 +12,7 @@ size_t sp_drwav_sampcount(drwav *wav);
 void sp_drwav_uninit(drwav *wav);
 int sp_drwav_seek_to_sample(drwav* pWav, size_t sample);
 drwav * sp_drwav_open_mono_write(const char *filename, int sr);
+drwav * sp_drwav_open_stereo_write(const char *filename, int sr);
 size_t sp_drwav_write(drwav* pWav, size_t samplesToWrite, const void* pData);
 void sp_drwav_close(drwav* pWav);
 #endif

@@ -45,6 +45,18 @@ drwav * sp_drwav_open_mono_write(const char *filename, int sr)
     return drwav_open_file_write(filename, &format);
 }
 
+drwav * sp_drwav_open_stereo_write(const char *filename, int sr)
+{
+    drwav_data_format format;
+    format.container = drwav_container_riff;
+    format.format = DR_WAVE_FORMAT_IEEE_FLOAT;
+    format.channels = 2;
+    format.sampleRate = sr;
+    format.bitsPerSample = 32;
+
+    return drwav_open_file_write(filename, &format);
+}
+
 size_t sp_drwav_write(drwav* pWav, size_t samplesToWrite, const void* pData)
 {
     return drwav_write(pWav, samplesToWrite, pData);
