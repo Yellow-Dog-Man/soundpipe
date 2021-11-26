@@ -215,3 +215,30 @@ void sp_ftbl_fftcut(sp_ftbl *ft, int cut)
     kiss_fftr_free(fft);
     kiss_fftr_free(ifft);
 }
+
+void sp_ftbl_mags(sp_ftbl *ft, sp_ftbl **out)
+{
+    kiss_fftr_cfg fft;
+    kiss_fft_cpx *tmp;
+    sp_ftbl *mags;
+    int magsz;
+    int n;
+
+    fft = kiss_fftr_alloc(ft->size, 0, NULL, NULL);
+    tmp = calloc(1, sizeof(kiss_fft_cpx) * ft->size);
+    magsz = ft->size / 2;
+
+    kiss_fftr(fft, ft->tbl, tmp);
+
+    sp_ftbl_create(NULL, &mags, magsz);
+
+    for (n = 0; n < magsz; n++) {
+        mags->tbl[n] = sqrt(tmp[n].r*tmp[n].r +
+                            tmp[n].i*tmp[n].i);
+    }
+
+    kiss_fftr_free(fft);
+    KISS_FFT_FREE(tmp);
+
+    *out = mags;
+}

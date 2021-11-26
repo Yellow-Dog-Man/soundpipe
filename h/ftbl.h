@@ -18,3 +18,4 @@ void sp_gen_triangle(sp_data *sp, sp_ftbl *ft);
 void sp_gen_composite(sp_data *sp, sp_ftbl *ft, const char *argstring);
 void sp_gen_sinesum(sp_data *sp, sp_ftbl *ft, const char *argstring);
 void sp_ftbl_fftcut(sp_ftbl *ft, int cut);
+void sp_ftbl_mags(sp_ftbl *ft, sp_ftbl **out);
