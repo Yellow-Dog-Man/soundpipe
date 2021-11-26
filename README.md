@@ -1,3 +1,25 @@
+NOTICE: I really never thought I'd say this, but
+Soundpipe is going to self-destruct early 2022.
+
+Soundpipe has become too much of an emotionally charged
+project for me now. I just can't deal with it anymore.
+I'm burnt to a crisp. I need to move on.
+
+If you, dear reader, want to maintain a fork of it, fine. I
+really don't care. I encourage it.
+
+I promise I'll do my best to try and make projects in the
+spirit of Soundpipe. But, it won't be Soundpipe.
+
+It's been a good run, folks. I've really enjoyed the
+emails I've gotten from Soundpipe users over the years.
+It's been exciting seeing the creative efforts Soundpipe
+has enabled. But yeah, I'm done here.
+
+Happy Hacking Everyone.
+
+-Paul
+
 Soundpipe
 =========
 
