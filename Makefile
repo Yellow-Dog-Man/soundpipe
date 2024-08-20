@@ -37,6 +37,15 @@ libsoundpipe.a: $(MPATHS) $(LPATHS) $(TANGLED)
 	@echo "Creating $@"
 	@$(AR) rcs $@ $(MPATHS) $(LPATHS) $(TANGLED)
 
+libsoundpipe.so: $(MPATHS) $(LPATHS) $(TANGLED)
+	@echo "Creating $@"
+	@$(CC) -shared -o libsoundpipe.so $(MPATHS) $(LPATHS) $(TANGLED)
+
+
+libsoundpipe.dll: $(MPATHS) $(LPATHS) $(TANGLED)
+	@echo "Creating $@"
+	@$(CC) -shared -o libsoundpipe.dll $(MPATHS) $(LPATHS) $(TANGLED)
+
 h/soundpipe.h: $(HPATHS)
 	echo "#ifndef SOUNDPIPE_H" > $@
 ifdef USE_DOUBLE
@@ -85,6 +94,8 @@ clean:
 	$(RM) h/soundpipe.h
 	$(RM) -r docs
 	$(RM) libsoundpipe.a
+	$(RM) libsoundpipe.so
+	$(RM) libsoundpipe.dll
 	$(RM) soundpipe.c
 	$(RM) sp_dict.lua
 	$(RM) $(LPATHS)
