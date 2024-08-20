@@ -1,0 +1,49 @@
+name: Build soundpipe for Linux & Windows
+run-name: ${{ github.actor }} is building soundpipe
+on:
+    push:
+        branches:
+            - master
+
+
+jobs:
+    Build:
+        runs-on: ubuntu-latest
+
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            
+            - name: Create output directory variable
+              id: buildoutput
+              run: echo "build-output-dir=${{ github.workspace }}/OutputFiles" >> "$GITHUB_OUTPUT"
+
+            - name: Make output directory
+              run: mkdir ${{ steps.buildoutput.outputs.build-output-dir }}
+            
+            - name: Install MinGW
+              run: sudo apt install -y mingw-w64
+            
+            - name: Build for Linux
+              run: bash make_linux_shared.sh
+            
+            - name: Move Linux library to output
+              run: mv libsoundpipe.so ${{ steps.buildoutput.outputs.build-output-dir }}
+            
+            - name: Clean up Linux build
+              run: make clean
+
+            - name: Build for Windows
+              run: bash make_windows_shared.sh
+            
+            - name: Move Windows library to output
+              run: mv libsoundpipe.dll ${{ steps.buildoutput.outputs.build-output-dir }}
+            
+            - name: Pack it with a big red ribbon
+              uses: actions/upload-artifact@v4
+              with:
+                name: SoundPipe-Windows-Linux
+                path: ${{ steps.buildoutput.outputs.build-output-dir }}
+            
+            
