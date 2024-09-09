@@ -1060,3 +1060,10 @@ int sp_zitarev_compute(sp_data *sp, sp_zitarev *p, SPFLOAT *in1, SPFLOAT *in2, S
     computezitarev(dsp, 1, faust_in, faust_out);
     return SP_OK;
 }
+
+int sp_zitarev_compute_many(sp_data *sp, sp_zitarev *p, int count, SPFLOAT **stereo_in, SPFLOAT **stereo_out)
+{
+	zitarev *dsp = p->faust;
+	computezitarev(dsp, count, stereo_in, stereo_out);
+	return SP_OK;
+}
