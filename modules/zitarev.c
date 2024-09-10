@@ -980,7 +980,7 @@ static void computezitarev(zitarev* dsp, int count, FAUSTFLOAT** inputs, FAUSTFL
 			dsp->fRec6[1] = dsp->fRec6[0];
 			dsp->fRec7[2] = dsp->fRec7[1];
 			dsp->fRec7[1] = dsp->fRec7[0];
-			dsp->fRec8[2] = dsp->fRec8[1];
+				dsp->fRec8[2] = dsp->fRec8[1];
 			dsp->fRec8[1] = dsp->fRec8[0];
 			dsp->fRec9[2] = dsp->fRec9[1];
 			dsp->fRec9[1] = dsp->fRec9[0];
@@ -1061,9 +1061,11 @@ int sp_zitarev_compute(sp_data *sp, sp_zitarev *p, SPFLOAT *in1, SPFLOAT *in2, S
     return SP_OK;
 }
 
-int sp_zitarev_compute_many(sp_data *sp, sp_zitarev *p, int count, SPFLOAT **stereo_in, SPFLOAT **stereo_out)
+int sp_zitarev_compute_many(sp_data *sp, sp_zitarev *p, int count, int mono_input, SPFLOAT **stereo_in, SPFLOAT **stereo_out)
 {
 	zitarev *dsp = p->faust;
+
 	computezitarev(dsp, count, stereo_in, stereo_out);
+	
 	return SP_OK;
 }

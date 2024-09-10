@@ -4,7 +4,9 @@ on:
     push:
         branches:
             - master
-
+    
+    workflow_call:
+      
 
 jobs:
     Build:
@@ -29,7 +31,11 @@ jobs:
               run: bash make_linux_shared.sh
             
             - name: Move Linux library to output
-              run: mv libsoundpipe.so ${{ steps.buildoutput.outputs.build-output-dir }}
+              run: |
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64/native
+                mv libsoundpipe.so ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
             
             - name: Clean up Linux build
               run: make clean
@@ -38,7 +44,12 @@ jobs:
               run: bash make_windows_shared.sh
             
             - name: Move Windows library to output
-              run: mv libsoundpipe.dll ${{ steps.buildoutput.outputs.build-output-dir }}
+            
+              run: |
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
+                mv libsoundpipe.dll ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
             
             - name: Pack it with a big red ribbon
               uses: actions/upload-artifact@v4
