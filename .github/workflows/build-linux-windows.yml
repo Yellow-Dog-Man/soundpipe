@@ -20,13 +20,13 @@ jobs:
             - name: Create output directory variable
               id: buildoutput
               run: echo "build-output-dir=${{ github.workspace }}/OutputFiles" >> "$GITHUB_OUTPUT"
-
-            - name: Make runtimes directory for windows/linux
-              run: mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
             
             - name: Make output directory
               run: mkdir ${{ steps.buildoutput.outputs.build-output-dir }}
             
+            - name: Make runtimes directory for windows/linux
+              run: mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
+
             - name: Install MinGW
               run: sudo apt install -y mingw-w64
             
