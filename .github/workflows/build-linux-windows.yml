@@ -33,8 +33,8 @@ jobs:
             - name: Move Linux library to output
               run: |
                 mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
-                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64
-                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64/native
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
                 mv libsoundpipe.so ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
             
             - name: Clean up Linux build
@@ -47,9 +47,9 @@ jobs:
             
               run: |
                 mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
-                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64
-                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
-                mv libsoundpipe.dll ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64
+                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64/native
+                mv libsoundpipe.dll ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64/native
             
             - name: Pack it with a big red ribbon
               uses: actions/upload-artifact@v4
