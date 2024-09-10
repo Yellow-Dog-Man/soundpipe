@@ -21,6 +21,9 @@ jobs:
               id: buildoutput
               run: echo "build-output-dir=${{ github.workspace }}/OutputFiles" >> "$GITHUB_OUTPUT"
 
+            - name: Make runtimes directory for windows/linux
+              run: mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
+            
             - name: Make output directory
               run: mkdir ${{ steps.buildoutput.outputs.build-output-dir }}
             
@@ -32,7 +35,6 @@ jobs:
             
             - name: Move Linux library to output
               run: |
-                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
                 mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64
                 mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
                 mv libsoundpipe.so ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/linux-x64/native
@@ -46,7 +48,6 @@ jobs:
             - name: Move Windows library to output
             
               run: |
-                mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes
                 mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64
                 mkdir ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64/native
                 mv libsoundpipe.dll ${{ steps.buildoutput.outputs.build-output-dir }}/runtimes/win-x64/native
