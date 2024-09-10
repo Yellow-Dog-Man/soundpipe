@@ -2,7 +2,7 @@
 
 default: all
 
-VERSION = 2.0.0
+VERSION = 2.0.0-ydm-2.1.0
 
 PREFIX ?= /usr/local
 
