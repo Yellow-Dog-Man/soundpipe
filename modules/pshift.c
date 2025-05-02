@@ -151,3 +151,12 @@ int sp_pshift_compute(sp_data *sp, sp_pshift *p, SPFLOAT *in, SPFLOAT *out)
     *out = out1;
     return SP_OK;
 }
+
+
+int sp_pshift_compute_many(sp_data *sp, sp_pshift *p, int count, SPFLOAT **mono_in, SPFLOAT **mono_out)
+{
+	pshift *dsp = p->faust;
+
+	computepshift(dsp, count, mono_in, mono_out);
+	return SP_OK;
+}
